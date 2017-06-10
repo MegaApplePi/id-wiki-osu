@@ -1,0 +1,178 @@
+@font-face{
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Ubuntu"),
+    url(/fonts/Ubuntu.ttf) format('ttf'),
+}
+
+@function top-shadow($depth){
+  $primary-offset: nth(1.5 3 10 14 19, $depth) * 1px;
+  $blur: nth(1.5 3 10 14 19, $depth) * 4px;
+  $color: rgba(black, nth(.12 .16 .19 .25 .30, $depth));
+
+  @return 0 $primary-offset $blur $color;
+}
+
+@function bottom-shadow($depth){
+  $primary-offset: nth(1.5 3 6 10 15, $depth) * 1px;
+  $blur: nth(1 3 3 5 6, $depth) * 4px;
+  $color: rgba(black, nth(.24 .23 .23 .22 .22, $depth));
+
+  @return 0 $primary-offset $blur $color;
+}
+
+@mixin card($depth){
+  @if $depth < 1 {
+    box-shadow: none;
+  } @else if $depth > 5 {
+    @warn "Invalid $depth `#{$depth}` for mixin `card`.";
+  } @else {
+    box-shadow: bottom-shadow($depth), top-shadow($depth);  
+  }
+}
+
+$pink_400: #EC407A;
+$pink_500: #E91E63;
+
+$grey_500: #9E9E9E;
+
+html, body{ height: 100%; }
+
+body{
+  cursor: default;
+  font-family: "Ubuntu";
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  user-select: none;
+  > canvas, alt-canvas{
+    height: 100%;
+    pointer-events: none;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+  }
+  h1{
+    font-size: 24px;
+  }
+  > master{
+    display: flex;
+    flex-flow: column;
+    font-size: 20px;
+    > div{
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      input{
+        background: none;
+        border: none;
+        border-bottom: 2px solid #000;
+        font-family: inherit;
+        font-size: inherit;
+        outline: none;
+        width: 25%;
+      }
+    }
+    > markdown{
+      align-content: center;
+      cursor: pointer;
+      display: flex;
+      flex-flow: row;
+      font-size: 20px;
+      justify-content: center;
+      margin-top: 12px;
+      &[data-state="disabled"]{
+        > icon[disabled]{ display: initial; }
+        > icon[enabled]{ display: none; }
+      }
+      &[data-state="enabled"]{
+        > icon[disabled]{ display: none; }
+        > icon[enabled]{ display: initial; }
+      }
+    }
+  }
+  > loading{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    &::before{
+      background: $grey_500;
+      content: '';
+      height: inherit;
+      left: inherit;
+      opacity: 0.25;
+      position: inherit;
+      top: inherit;
+      width: inherit;
+    }
+    &[hidden]{
+      display: none;
+    }
+    > icon{
+      animation: 1s loop cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+      font-size: 64px;
+      opacity: 1;
+      width: 64px;
+    }
+  }
+  > snackbar{
+    background: #323232;
+    border-radius: 2px;
+    bottom: 0;
+    left: 24px;
+    color: #fff;
+    display: inline-flex;
+    padding: 24px;
+    position: absolute;
+    transform: translateY(#{calc(-100% + 24px)});
+    transition: 1s transform;
+    @include card(1);
+    &[hidden]{
+      transform: translateY(100%);
+    }
+    > div{
+      align-items: center;
+      justify-content: flex-start;
+    }
+    > div[passed]{ display: none; }
+    > div[failed]{ display: none; }
+    > div[empty]{ display: none; }
+    &[data-state="passed"]{
+      > div[passed]{ display: inherit; }
+      > div[failed]{ display: none; }
+      > div[empty]{ display: none; }
+    }
+    &[data-state="failed"]{
+      > div[passed]{ display: none; }
+      > div[failed]{ display: inherit; }
+      > div[empty]{ display: none; }
+    }
+    &[data-state="empty"]{
+      > div[passed]{ display: none; }
+      > div[failed]{ display: none; }
+      > div[empty]{ display: inherit; }
+    }
+  }
+}
+@keyframes loop{
+  from{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(-360deg);
+  }
+}
+
+webview{
+  display: inline-flex;
+  flex: 0 1;
+  width: 0px;
+  height: 0px;
+}
