@@ -1,0 +1,135 @@
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Ubuntu"), url(/fonts/Ubuntu.ttf) format("ttf"); }
+html, body {
+  height: 100%; }
+
+body {
+  cursor: default;
+  font-family: "Ubuntu";
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  user-select: none; }
+  body > canvas, body alt-canvas {
+    height: 100%;
+    pointer-events: none;
+    width: 100%;
+    position: absolute;
+    z-index: -1; }
+  body h1 {
+    font-size: 24px; }
+  body > master {
+    display: flex;
+    flex-flow: column;
+    font-size: 20px; }
+    body > master > div {
+      align-items: center;
+      display: flex;
+      justify-content: center; }
+      body > master > div input {
+        background: none;
+        border: none;
+        border-bottom: 2px solid #000;
+        font-family: inherit;
+        font-size: inherit;
+        outline: none;
+        width: 25%; }
+    body > master > markdown {
+      align-content: center;
+      cursor: pointer;
+      display: flex;
+      flex-flow: row;
+      font-size: 20px;
+      justify-content: center;
+      margin-top: 12px; }
+      body > master > markdown[data-state="disabled"] > icon[disabled] {
+        display: initial; }
+      body > master > markdown[data-state="disabled"] > icon[enabled] {
+        display: none; }
+      body > master > markdown[data-state="enabled"] > icon[disabled] {
+        display: none; }
+      body > master > markdown[data-state="enabled"] > icon[enabled] {
+        display: initial; }
+  body > loading {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+    body > loading::before {
+      background: #9E9E9E;
+      content: '';
+      height: inherit;
+      left: inherit;
+      opacity: 0.25;
+      position: inherit;
+      top: inherit;
+      width: inherit; }
+    body > loading[hidden] {
+      display: none; }
+    body > loading > icon {
+      animation: 1s loop cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+      font-size: 64px;
+      opacity: 1;
+      width: 64px; }
+  body > snackbar {
+    background: #323232;
+    border-radius: 2px;
+    bottom: 0;
+    left: 24px;
+    color: #fff;
+    display: inline-flex;
+    padding: 24px;
+    position: absolute;
+    transform: translateY(calc(-100% + 24px));
+    transition: 1s transform;
+    box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12); }
+    body > snackbar[hidden] {
+      transform: translateY(100%); }
+    body > snackbar > div {
+      align-items: center;
+      justify-content: flex-start; }
+    body > snackbar > div[passed] {
+      display: none; }
+    body > snackbar > div[failed] {
+      display: none; }
+    body > snackbar > div[empty] {
+      display: none; }
+    body > snackbar[data-state="passed"] > div[passed] {
+      display: inherit; }
+    body > snackbar[data-state="passed"] > div[failed] {
+      display: none; }
+    body > snackbar[data-state="passed"] > div[empty] {
+      display: none; }
+    body > snackbar[data-state="failed"] > div[passed] {
+      display: none; }
+    body > snackbar[data-state="failed"] > div[failed] {
+      display: inherit; }
+    body > snackbar[data-state="failed"] > div[empty] {
+      display: none; }
+    body > snackbar[data-state="empty"] > div[passed] {
+      display: none; }
+    body > snackbar[data-state="empty"] > div[failed] {
+      display: none; }
+    body > snackbar[data-state="empty"] > div[empty] {
+      display: inherit; }
+
+@keyframes loop {
+  from {
+    transform: rotate(0); }
+  to {
+    transform: rotate(-360deg); } }
+webview {
+  display: inline-flex;
+  flex: 0 1;
+  width: 0px;
+  height: 0px; }
+
+/*# sourceMappingURL=index.css.map */
