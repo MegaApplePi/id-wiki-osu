@@ -7,10 +7,10 @@ let win;
 function createWindow(){
  win = new BrowserWindow({
   "icon": __dirname + "/icon/png/16.png",
-  "minheight": 256 + 39,
+  "minHeight": 256 + 39,
   "height": 256 + 39,
   // potential electron bug, minWidth doesn't match DOM's width (8px of extra window space on all sides?)
-  //"minWidth": 363 + 16,
+  "minWidth": 400 + 16,
   "width": 400 + 16,
  });
  win.setMenu(null);
