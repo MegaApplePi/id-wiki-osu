@@ -32,14 +32,17 @@
     let state;
     let id;
     try{
-      id = $webview.src.match(/[0-9]*$/)[0];
+      //id = $webview.src.match(/[0-9]*$/)[0];
+      id = $webview.src;
+      id = id.substring(id.lastIndexOf("/") + 1, id.length);
       state = "passed";
     }catch(e){
       state = "failed";
     }finally{
-      if( id.length > 0 ){
+      if( id.length > 0 && !Number.isNaN(Number(id)) ){
         if( $markdown.getAttribute('data-state') === 'enabled' ){
-          id = "[" + $inputText.value + "](https://osu.ppy.sh/users/" + id + ")";
+          let title = $webview.getTitle().replace(/(\'s profile)$/, "");
+          id = "[" + title + "](https://osu.ppy.sh/users/" + id + ")";
         }
         clipboard.writeText(id);
       }else{
