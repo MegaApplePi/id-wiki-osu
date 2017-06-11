@@ -82,17 +82,17 @@ body {
   body > snackbar {
     background: #323232;
     border-radius: 2px;
-    bottom: 0;
+    bottom: 24px;
     left: 24px;
     color: #fff;
     display: inline-flex;
     padding: 24px;
     position: absolute;
-    transform: translateY(calc(-100% + 24px));
+    transform: translateY(0);
     transition: 1s transform;
     box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12); }
     body > snackbar[hidden] {
-      transform: translateY(100%); }
+      transform: translateY(calc(100% + 24px)); }
     body > snackbar > div {
       align-items: center;
       justify-content: flex-start; }

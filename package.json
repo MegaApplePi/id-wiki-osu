@@ -1,6 +1,6 @@
 {
   "name": "id-osu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "id-osu",
   "main": "main.js",
   "repository": {
@@ -18,6 +18,6 @@
   "scripts": {
     "start": "electron . --enable-logging",
     "dev": "NODE_ENV='development' npm run start",
-    "build": "electron-packager . id-osu --platform=win32 --arch=ia32 --out=build --asar=true --prune=true --overwrite --win32metadata.CompanyName=\"MegaApple_Pi\" --win32metadata.FileDescription=\"A quick way to get an osu!user's id.\" --win32metadata.OriginalFilename=\"id-osu.exe\" --win32metadata.ProductName=\"id-osu\" --win32metadata.InternalName=\"id-osu\" --icon=icon/ico/icon.ico"
+    "build": "electron-packager . id-osu --platform=win32 --arch=ia32 --out=build --asar=true --prune=true --overwrite --win32metadata.CompanyName=\"MegaApple_Pi\" --win32metadata.FileDescription=\"id-osu\" --win32metadata.OriginalFilename=\"id-osu.exe\" --win32metadata.ProductName=\"id-osu\" --win32metadata.InternalName=\"id-osu\" --icon=icon/ico/icon.ico"
   }
 }
