@@ -1,5 +1,7 @@
 # id-osu
 
+[![Maintenance Not Intended](unmaintained.png)](http://unmaintained.tech/)
+
 A quick way to get an osu!user's id.
 
 ## Usage
