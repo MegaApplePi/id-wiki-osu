@@ -125,17 +125,17 @@ body{
   > snackbar{
     background: #323232;
     border-radius: 2px;
-    bottom: 0;
+    bottom: 24px;
     left: 24px;
     color: #fff;
     display: inline-flex;
     padding: 24px;
     position: absolute;
-    transform: translateY(#{calc(-100% + 24px)});
+    transform: translateY(0);
     transition: 1s transform;
     @include card(1);
     &[hidden]{
-      transform: translateY(100%);
+      transform: translateY(#{calc(100% + 24px)});
     }
     > div{
       align-items: center;

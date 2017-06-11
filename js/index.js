@@ -59,6 +59,8 @@
     }
   });
 
+  /* triangle.js stuff */
+
   let $canvas = $('canvas')[0];
   let $altBG = $('alt-canvas')[0];
   let triangle = new TriangleBG({
