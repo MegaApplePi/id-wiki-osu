@@ -1,55 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <meta charset="utf-8"/>
-    <title>id-osu</title>
-    <link href="css/icon.css" rel="stylesheet"/>
-    <link href="css/index.css" rel="stylesheet"/>
+<head>
+  <meta charset="utf-8" />
+  <title>id-osu</title>
+  <link href="css/index.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+</head>
 
-    <script>
-      window.nodeRequire = require;
-      delete window.require;
-      delete window.exports;
-      delete window.module;
-    </script>
-
-    <script src="js/sizzle.min.js"></script>
-    <script src="js/triangles.js"></script>
-  </head>
-  <body>
-    <alt-canvas></alt-canvas>
-    <canvas></canvas>
-    <master>
-      <h1>Enter osu!username:</h1>
-      <div>
-        <text>https://osu.ppy.sh/users/</text>
-        <input type="text" pattern=".{3,15}"/>
-<!--        <icon>search</icon>-->
-      </div>
-      <markdown data-state="disabled">
-        <icon disabled>check_box_outline_blank</icon>
-        <icon enabled>check_box</icon>
-        <span>return as Markdown</span>
-      </markdown>
-    </master>
-    <webview></webview>
-    <loading hidden>
-      <icon>loop</icon>
-    </loading>
-    <snackbar hidden>
-      <div passed>
-        <icon>content_copy</icon>
-        <text>osu!user id copied to clipboard!</text>
-      </div>
-      <div failed>
-        <icon>error</icon>
-        <text>Cannot get osu!user id!</text>
-      </div>
-      <div empty>
-        <icon>clear</icon>
-        <text>Not a valid osu!username!</text>
-      </div>
-    </snackbar>
-    <script src="js/index.js"></script>
-  </body>
+<body>
+  <div class="main">
+    <h1>id-osu</h1>
+    <div class="group">
+      <text>https://osu.ppy.sh/users/</text>
+      <input type="text" pattern=".{3,15}" />
+      <!--<icon>search</icon>-->
+    </div>
+    <div class="group">
+      <input type="checkbox" id="inputUseMarkdown" />
+      <label for="inputUseMarkdown">Return value as Markdown (for osu!wiki)</label>
+    </div>
+  </div>
+  <loading hidden>
+    <icon>loop</icon>
+  </loading>
+  <snackbar hidden>
+    <div passed>
+      <icon>content_copy</icon>
+      <text>osu!user id copied to clipboard!</text>
+    </div>
+    <div failed>
+      <icon>error</icon>
+      <text>Cannot get osu!user id!</text>
+    </div>
+    <div empty>
+      <icon>clear</icon>
+      <text>Not a valid osu!username!</text>
+    </div>
+  </snackbar>
+  <script src="js/index.js"></script>
+</body>
 </html>
