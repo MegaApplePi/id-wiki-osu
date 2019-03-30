@@ -1,8 +1,6 @@
-# id-osu
+# id-wiki-osu
 
-[![Maintenance Not Intended](unmaintained.png)](http://unmaintained.tech/)
-
-A quick way to get an osu!user's id.
+> RIP June 2017 - June 2017; A tool created to pass some time. Immediately died after completion.
 
 ## Usage
 
@@ -18,14 +16,8 @@ A quick way to get an osu!user's id.
      - or the username entered does not exist
    - `Cannot get osu!user id!`
      - various reasons but likely your internet connection is broke
-     
 
-## Features
-
-- Automatically copy the id to your clipboard.
-- Ability to return Markdown link.
-
-## External Sources
+## Stuff used in this project
 
 - [Electron](http://electron.atom.io/) - Web Application Container
 - [Sizzle](https://sizzlejs.com/) - A pure-JavaScript CSS selector engine.
